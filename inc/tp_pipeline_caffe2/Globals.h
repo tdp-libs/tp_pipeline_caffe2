@@ -19,6 +19,7 @@ class StepDelegateMap;
 namespace tp_pipeline_caffe2
 {
 TDP_DECLARE_ID(                       caffe2SID,                          "Caffe 2")
+TDP_DECLARE_ID(                 executeGraphSID,                    "Execute graph")
 
 //##################################################################################################
 //! Add the step delegates that this module provides to the StepDelegateMap

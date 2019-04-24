@@ -7,6 +7,7 @@
 namespace tp_pipeline_caffe2
 {
 TDP_DEFINE_ID(                       caffe2SID,                          "Caffe 2")
+TDP_DEFINE_ID(                 executeGraphSID,                    "Execute graph")
 
 //##################################################################################################
 void createStepDelegates(tp_pipeline::StepDelegateMap& stepDelegates, const tp_data::CollectionFactory* collectionFactory)

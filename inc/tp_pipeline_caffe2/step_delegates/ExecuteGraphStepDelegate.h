@@ -1,5 +1,5 @@
-#ifndef tp_pipeline_caffe2_StubStepDelegate_h
-#define tp_pipeline_caffe2_StubStepDelegate_h
+#ifndef tp_pipeline_caffe2_ExecuteGraphStepDelegate_h
+#define tp_pipeline_caffe2_ExecuteGraphStepDelegate_h
 
 #include "tp_pipeline_caffe2/Globals.h"
 #include "tp_pipeline/AbstractStepDelegate.h"
@@ -8,11 +8,11 @@ namespace tp_pipeline_caffe2
 {
 
 //##################################################################################################
-class StubStepDelegate: public tp_pipeline::AbstractStepDelegate
+class ExecuteGraphStepDelegate: public tp_pipeline::AbstractStepDelegate
 {
 public:
   //################################################################################################
-  StubStepDelegate();
+  ExecuteGraphStepDelegate();
 
   //################################################################################################
   void executeStep(tp_pipeline::StepDetails* stepDetails,
@@ -21,6 +21,12 @@ public:
 
   //################################################################################################
   void fixupParameters(tp_pipeline::StepDetails* stepDetails)const override;
+
+  //################################################################################################
+  static tp_pipeline::StepDetails* makeStepDetails(const std::string& inName,
+                                                   const std::string& outName,
+                                                   const std::string& predictNetData,
+                                                   const std::string& initNetData);
 };
 
 }

@@ -8,10 +8,5 @@ HEADERS += inc/tp_pipeline_caffe2/Globals.h
 
 
 #-- Delegates --------------------------------------------------------------------------------------
-SOURCES += src/step_delegates/StubStepDelegate.cpp
-HEADERS += inc/tp_pipeline_caffe2/step_delegates/StubStepDelegate.h
-
-
-#-- Members ----------------------------------------------------------------------------------------
-SOURCES += src/members/StubMember.cpp
-HEADERS += inc/tp_pipeline_caffe2/members/StubMember.h
+SOURCES += src/step_delegates/ExecuteGraphStepDelegate.cpp
+HEADERS += inc/tp_pipeline_caffe2/step_delegates/ExecuteGraphStepDelegate.h
