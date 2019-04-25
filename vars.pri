@@ -10,3 +10,8 @@ HEADERS += inc/tp_pipeline_caffe2/Globals.h
 #-- Delegates --------------------------------------------------------------------------------------
 SOURCES += src/step_delegates/ExecuteGraphStepDelegate.cpp
 HEADERS += inc/tp_pipeline_caffe2/step_delegates/ExecuteGraphStepDelegate.h
+
+#-- Complex objects --------------------------------------------------------------------------------
+
+SOURCES += src/complex_objects/GraphComplexObject.cpp
+HEADERS += inc/tp_pipeline_caffe2/complex_objects/GraphComplexObject.h

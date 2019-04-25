@@ -25,6 +25,9 @@ public:
   //################################################################################################
   static tp_pipeline::StepDetails* makeStepDetails(const std::string& inName,
                                                    const std::string& outName,
+                                                   const std::string& inBlobName,
+                                                   const std::string& outBlobName,
+                                                   const std::vector<int64_t>& inBlobShape,
                                                    const std::string& predictNetData,
                                                    const std::string& initNetData);
 };
