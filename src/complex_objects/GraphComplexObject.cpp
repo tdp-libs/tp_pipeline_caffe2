@@ -182,8 +182,8 @@ tp_pipeline::AbstractComplexObject* GraphComplexObjectFactory::loadBinary(const 
     auto jj = TPJSON(j, "inBlobShape");
     if(jj.is_array())
       for(size_t i=0; i<jj.size(); i++)
-        if(jj.is_number())
-          obj->d->inBlobShape.push_back(jj);
+        if(auto jjj=jj.at(i); jjj.is_number())
+          obj->d->inBlobShape.push_back(jjj);
   }
 
   if(size_t i = TPJSONSizeT(j, "predictNetData"); i<blobs.size())
