@@ -2,6 +2,7 @@
 
 #include "tp_caffe2_utils/FillOps.h"
 #include "tp_caffe2_utils/BlobUtils.h"
+#include "tp_caffe2_utils/NetUtils.h"
 
 #include "tp_data/CollectionFactory.h"
 #include "tp_data/AbstractMember.h"
@@ -68,7 +69,12 @@ struct GraphComplexObject::Private
 
     caffe2::NetDef initPredictNet;
     initPredictNet.set_name("initPredict");
+#warning do we need this?
     tp_caffe2_utils::addConstantFillOp(initPredictNet, inBlobShape, 1.0f, inBlobName);
+
+    tp_caffe2_utils::setDeviceType(initPredictNet);
+    tp_caffe2_utils::setDeviceType(initNet);
+    tp_caffe2_utils::setDeviceType(predictNet);
 
     workspace.RunNetOnce(initNet);
     workspace.RunNetOnce(initPredictNet);

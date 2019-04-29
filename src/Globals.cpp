@@ -1,5 +1,5 @@
 #include "tp_pipeline_caffe2/Globals.h"
-//#include "tp_pipeline_caffe2/step_delegates/StubStepDelegate.h"
+#include "tp_pipeline_caffe2/step_delegates/ExecuteGraphStepDelegate.h"
 
 #include "tp_pipeline/StepDelegateMap.h"
 
@@ -18,8 +18,7 @@ TDP_DEFINE_ID(                  graphObjectSID,                     "Graph objec
 void createStepDelegates(tp_pipeline::StepDelegateMap& stepDelegates, const tp_data::CollectionFactory* collectionFactory)
 {
   TP_UNUSED(collectionFactory);
-  TP_UNUSED(stepDelegates);
-  //stepDelegates.addStepDelegate(new StubStepDelegate);
+  stepDelegates.addStepDelegate(new ExecuteGraphStepDelegate());
 }
 
 REGISTER_CREATE_STEP_DELEGATES;

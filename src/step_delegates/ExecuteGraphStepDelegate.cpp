@@ -4,7 +4,7 @@
 #include "tp_pipeline/StepDetails.h"
 #include "tp_pipeline/StepInput.h"
 
-#include "tp_pipeline_math_utils/members/FloatsMember.h"
+#include "tp_data_math_utils/members/FloatsMember.h"
 
 #include "tp_data_math_utils/members/FloatsMember.h"
 #include "tp_data/Collection.h"
@@ -83,7 +83,7 @@ void ExecuteGraphStepDelegate::executeStep(tp_pipeline::StepDetails* stepDetails
                                            tp_data::Collection& output) const
 {
   std::string error;
-  TP_CLEANUP([&]{output.addError(error);});
+  TP_CLEANUP([&]{if(!error.empty())output.addError(error);});
 
   std::string dataInputName = stepDetails->parameterValue<std::string>(dataInputSID());
   if(dataInputName.empty())
@@ -94,9 +94,9 @@ void ExecuteGraphStepDelegate::executeStep(tp_pipeline::StepDetails* stepDetails
 
   const tp_data_math_utils::FloatsMember* src{nullptr};
   input.memberCast(dataInputName, src);
-  if(dataInputName.empty())
+  if(!src)
   {
-    error = "Failed to find input data.";
+    error = "Failed to find input data. Member name: " + dataInputName;
     return;
   }
 
@@ -112,7 +112,7 @@ void ExecuteGraphStepDelegate::executeStep(tp_pipeline::StepDetails* stepDetails
   if(!error.empty())
     return;
 
-  auto outMember = new tp_pipeline_math_utils::FloatsMember(stepDetails->lookupOutputName("Output data"));
+  auto outMember = new tp_data_math_utils::FloatsMember(stepDetails->lookupOutputName("Output data"));
   outMember->data = std::move(outData);
   output.addMember(outMember);
 }
