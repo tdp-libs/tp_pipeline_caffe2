@@ -69,7 +69,6 @@ struct GraphComplexObject::Private
 
     caffe2::NetDef initPredictNet;
     initPredictNet.set_name("initPredict");
-#warning do we need this?
     tp_caffe2_utils::addConstantFillOp(initPredictNet, inBlobShape, 1.0f, inBlobName);
 
     tp_caffe2_utils::setDeviceType(initPredictNet);
