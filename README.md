@@ -46,7 +46,8 @@ cd caffe2/
 mkdir usr
 mkdir usr/lib/
 
-git clone https://github.com/pytorch/pytorch.git --recursive && cd pytorch
+git clone https://github.com/pytorch/pytorch.git --recursive 
+cd pytorch
 python3 setup.py build
 
 cp torch/lib/*.so ../usr/lib/
