@@ -57,6 +57,8 @@ cp -r build/lib/*.so ../usr/lib/
 #cp -r torch/lib/include/ ../usr/
 cp -r torch/include/ ../usr/
 
+cd ../..
+
 ```
 ## Building Caffe2 iOS
 ```
