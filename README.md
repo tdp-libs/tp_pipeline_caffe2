@@ -62,7 +62,7 @@ cd ../..
 ```
 ## Building Caffe2 iOS
 ```
-brew install automake libtool
+brew install automake libtool cmake
 
 mkdir caffe2
 cd caffe2
