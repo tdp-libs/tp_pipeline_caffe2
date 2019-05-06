@@ -63,6 +63,8 @@ cd ../..
 ## Building Caffe2 iOS
 Start by opening XCode and building a test app on your device, this is just to ensure that toolchains are installed.
 
+On a fresh install I needed to reboot after installing XCode.
+
 Then:
 ```
 brew install automake libtool cmake
